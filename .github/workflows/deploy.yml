@@ -2,7 +2,7 @@ name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # 你的主分支，有的仓库是master
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -20,14 +20,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22   # 修改为22，消除废弃警告
           cache: 'npm'
       - name: Install dependencies
-        run: npm install
-      - name: Build
+        run: npm install --legacy-peer-deps  # ✅这里是npm install，不是npm ci
+      - name: Build project
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
