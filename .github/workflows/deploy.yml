@@ -23,10 +23,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22   # 修改为22，消除废弃警告
-          cache: 'npm'
+          node-version: 22
+          # =========删掉 cache: 'npm' =========
       - name: Install dependencies
-        run: npm install --legacy-peer-deps  # ✅这里是npm install，不是npm ci
+        run: npm install --legacy-peer-deps
       - name: Build project
         run: npm run build
       - name: Upload artifact
