@@ -1,0 +1,1 @@
+import{i as e,o as t,s as n}from"./index-DG9aOBaO.js";var r=t({__name:`index`,setup(t){return(t,r)=>(n(),e(`div`,null,` form `))}});export{r as default};
