@@ -26,12 +26,13 @@ jobs:
           fetch-depth: 0
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: List root files   # ✅【新增调试步骤】列出根目录全部文件，用来查看检出拿到了哪些文件
+      - name: List root files
         run: ls -la .
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'   # ✅保留 . ，读取仓库根目录（适配你：无dist文件夹，index.html直接在根）
+          path: '.'
+          include-hidden-files: true  # ⭐新增！包含隐藏文件（.nojekyll）
       - name: GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
